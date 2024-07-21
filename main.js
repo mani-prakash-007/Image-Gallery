@@ -14,12 +14,10 @@ let page = 1;
 async function searchImage(){
     inputdata = inputElement.value ;
     const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputdata}&client_id=${apiKey}`;
-    console.log(url)
     const response = await fetch(url);
     const responseData = await response.json();
 
     const results = responseData.results;
-    console.log(results);
 
     if(page === 1){
         searchResult.innerHTML = '';
@@ -52,9 +50,7 @@ async function searchImage(){
 }
 
 formElement.addEventListener("submit", (event)=> {
-    alert(inputElement.value);
     event.preventDefault();
-    console.log("Working...");
     page = 1;
     searchImage()
 })
